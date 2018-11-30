@@ -18,10 +18,12 @@ export class PhotoOwnerDirective implements OnInit{
     ){}
 
         ngOnInit(): void {
-            this.userService.getUser().subscribe(user => {
-                if(!user || user.id != this.ownedPhoto.userId) {
-                    this.renderer.setElementStyle(this.element.nativeElement, 'display', 'none');
-                }
+            this.userService
+                .getUser()
+                .subscribe(user => {
+                    if(!user || user.id != this.ownedPhoto.userId) {
+                        this.renderer.setElementStyle(this.element.nativeElement, 'display', 'none');
+                    }
             });
         }
 }
